@@ -1,0 +1,19 @@
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: ${ISSUER_URI}
+      client:
+        registration:
+          msvc-users-client:
+            provider: ${PROVIDER}
+            client-id: ${CLIENT_ID}
+            client-secret: ${CLIENT_SECRET}
+            authorization-grant-type: ${AUTHORIZATION_GRANT_TYPE}
+            redirect-uri: ${REDIRECT_URI}
+            scope: read
+            client-name: msvc-users-client
+        provider:
+          spring:
+            issuer-uri: ${ISSUER_URI}

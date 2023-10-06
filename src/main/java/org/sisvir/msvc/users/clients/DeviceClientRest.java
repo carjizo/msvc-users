@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@FeignClient(name = "msvc-devices", url = "localhost:8004", path = "/devices")
+@FeignClient(name = "msvc-devices", url = "msvc-devices-production.up.railway.app", path = "/devices")
 public interface DeviceClientRest {
 
     @GetMapping("/{id}")

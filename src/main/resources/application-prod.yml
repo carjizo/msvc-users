@@ -1,3 +1,6 @@
+logging:
+  level:
+    org.springframework.security.oauth2: DEBUG
 spring:
   security:
     oauth2:

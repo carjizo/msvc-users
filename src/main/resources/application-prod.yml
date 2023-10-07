@@ -6,7 +6,7 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: https://msvc-auth-production.up.railway.app
+          issuer-uri: http://msvc-auth-production.up.railway.app
       client:
         registration:
           msvc-users-client:
@@ -19,4 +19,4 @@ spring:
             client-name: msvc-users-client
         provider:
           spring:
-            issuer-uri: https://msvc-auth-production.up.railway.app
+            issuer-uri: http://msvc-auth-production.up.railway.app

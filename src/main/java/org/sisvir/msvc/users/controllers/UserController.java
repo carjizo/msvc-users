@@ -7,7 +7,6 @@ import org.sisvir.msvc.users.models.entities.User;
 import org.sisvir.msvc.users.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,9 +18,6 @@ import java.util.*;
 @RestController
 @RequestMapping("/users")
 public class UserController {
-
-    @Autowired
-    private BCryptPasswordEncoder passwordEncoder;
 
     @Autowired
     private UserService userService;
@@ -61,7 +57,7 @@ public class UserController {
             UserDTO userDTO = UserDTO.builder()
                     .id(user.getId())
                     .userName(user.getUserName())
-                    .password(passwordEncoder.encode(user.getPassword()))
+                    .password(user.getPassword())
                     .build();
             return ResponseEntity.ok(userDTO);
         }
@@ -83,7 +79,7 @@ public class UserController {
 //        userDTO.setPassword(passwordEncoder.encode(userDTO.getPassword()));
         userService.create(User.builder()
                 .userName(userDTO.getUserName())
-                .password(passwordEncoder.encode(userDTO.getPassword()))
+                .password(userDTO.getPassword())
                 .build());
 
         return ResponseEntity.created(new URI("/users/create")).build();
@@ -108,7 +104,7 @@ public class UserController {
             }
             user.setUserName(userDTO.getUserName());
 //            user.setPassword(passwordEncoder.encode(userDTO.getPassword()));
-            user.setPassword(passwordEncoder.encode(userDTO.getPassword()));
+            user.setPassword(userDTO.getPassword());
             userService.create(user);
             return ResponseEntity.ok("Registro Actualizado");
         }

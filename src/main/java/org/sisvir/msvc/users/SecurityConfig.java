@@ -22,31 +22,6 @@ public class SecurityConfig {
         return new BCryptPasswordEncoder();
     }
 
-//    @Bean
-//    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-//        http
-////                .csrf(csrf -> csrf.disable())
-//                .authorizeHttpRequests(authorize ->
-//                        authorize
-//                                .requestMatchers("/authorized").permitAll()
-//                                .requestMatchers(HttpMethod.GET, "/getAll", "/{id}").hasAnyAuthority("SCOPE_read", "SCOPE_write")
-//                                .requestMatchers(HttpMethod.POST, "/create").hasAuthority("SCOPE_write")
-//                                .requestMatchers(HttpMethod.PUT, "/update/{id}").hasAuthority("SCOPE_write")
-//                                .requestMatchers(HttpMethod.DELETE, "/delete/{id}").hasAuthority("SCOPE_write")
-//                                .anyRequest().authenticated()
-//                )
-//                .sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-//                .oauth2Login(oauth2Login ->
-//                        oauth2Login.loginPage("/oauth2/authorization/msvc-users-client"))
-//                .oauth2Client(withDefaults())
-//                .oauth2ResourceServer((oauth2) -> oauth2.jwt(Customizer.withDefaults()));
-////                .oauth2ResourceServer().jwt();
-////                .logout(logout ->
-////                        logout.logoutSuccessHandler(oidcLogoutSuccessHandler(clientRegistrationRepository)));
-//        return http.build();
-//    }
-
-
     @Bean
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.authorizeRequests()

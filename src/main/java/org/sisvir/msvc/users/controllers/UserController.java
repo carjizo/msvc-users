@@ -27,6 +27,7 @@ public class UserController {
     private UserService userService;
 
     @GetMapping("/getAll")
+    @CrossOrigin
     public ResponseEntity<?> listar() {
         List<UserDTO> userDTOList = userService.findAll()
                 .stream()

@@ -25,6 +25,8 @@ public class PatientDevice {
     @Column(name = "device_id", unique = true)
     private Long deviceId;
 
+    @Column(name = "patient_id", unique = true)
+    private Long patientId;
 
     @Override
     public boolean equals(Object obj) {

@@ -70,6 +70,7 @@ public class UserController {
     }
 
     @PostMapping("/create")
+    @CrossOrigin
     public ResponseEntity<?> crear(@Valid @RequestBody UserDTO userDTO, BindingResult result) throws URISyntaxException {
         if (!userDTO.getUserName().isEmpty() && userService.findByUserName(userDTO.getUserName()).isPresent()) {
             return ResponseEntity.badRequest()
